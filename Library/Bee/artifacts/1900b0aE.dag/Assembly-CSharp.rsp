@@ -422,9 +422,10 @@
 -analyzer:"D:/unityeditors/6000.0.43f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"D:/unityeditors/6000.0.43f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"D:/unityeditors/6000.0.43f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/Arrow.cs"
-"Assets/Enemy.cs"
-"Assets/Player.cs"
+"Assets/Scripts/Arrow.cs"
+"Assets/Scripts/Corn.cs"
+"Assets/Scripts/Enemy.cs"
+"Assets/Scripts/Player.cs"
 -langversion:9.0
 /deterministic
 /optimize+
