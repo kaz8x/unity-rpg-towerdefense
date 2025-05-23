@@ -3,13 +3,23 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health;
-    public GameObject border;
+    private GameObject border;
     public Animator animator;
+    private GameObject kamera;
+    private GameRules level_script;
+    private float speed;
+
 
     public float timer = 0f;
 
 
+    void Start()
+    {
+        border = GameObject.Find("FieldBorder");
+        kamera = GameObject.Find("Main Camera");
+        level_script = kamera.GetComponent<GameRules>();
 
+    }
 
 
     public void TakeDamage()
@@ -23,6 +33,7 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        speed = 1.0f * 0.2f * level_script.level;
         if(timer > 0)
         {
             timer = timer - Time.deltaTime;
@@ -30,7 +41,7 @@ public class Enemy : MonoBehaviour
         
         if (transform.position.x > border.transform.position.x)
         {
-            transform.position = transform.position + new Vector3(-1.0f, 0.0f, 0.0f) * 0.7f * Time.deltaTime;
+            transform.position = transform.position + new Vector3(-1.0f, 0.0f, 0.0f) * speed * Time.deltaTime;
         } else
         {
             animator.SetBool("isMoving", false);
