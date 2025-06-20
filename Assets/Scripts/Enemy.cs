@@ -1,13 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
+    public int health = 5;
     private GameObject border;
     public Animator animator;
     private GameObject kamera;
     private GameRules level_script;
     private float speed;
+    private NewBehaviourScript UI;
 
 
     public float timer = 0f;
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour
     {
         border = GameObject.Find("FieldBorder");
         kamera = GameObject.Find("Main Camera");
+        UI = GameObject.Find("Canvas").GetComponent<NewBehaviourScript>();
         level_script = kamera.GetComponent<GameRules>();
 
     }
@@ -24,9 +27,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage()
     {
-        health = health - 1;
+        health = health - UI.damage_factor;
         if (health <= 0)
         {
+            level_script.score = level_script.score + 1;
             Destroy(gameObject);
         }
     }

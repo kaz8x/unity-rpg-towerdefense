@@ -9,6 +9,7 @@ public class GameRules : MonoBehaviour
     public Spawner spawner;
     public Corn corn;
     public GameObject gameovertext;
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
